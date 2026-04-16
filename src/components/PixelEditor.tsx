@@ -9,8 +9,8 @@ import { ExportMenu } from "./ExportMenu";
 import { Palette } from "./Palette";
 import { Toolbar } from "./Toolbar";
 import { usePixelCanvas } from "@/hooks/usePixelCanvas";
+import { PALETTE_PRESETS } from "@/config/palettes";
 import type { Background, PixelBuffer, Tool } from "@/types";
-import { DEFAULT_PALETTE } from "@/types";
 
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 64;
@@ -26,7 +26,7 @@ export const PixelEditor: React.FC = () => {
   const [zoom, setZoom] = useState(32);
   const [tool, setTool] = useState<Tool>("pencil");
   const [color, setColor] = useState("#000000");
-  const [palette, setPalette] = useState<string[]>(DEFAULT_PALETTE);
+  const [palette, setPalette] = useState<string[]>(PALETTE_PRESETS[0].colors);
   const [showGrid, setShowGrid] = useState(true);
   const [fillShape, setFillShape] = useState(false);
   const [background, setBackground] = useState<Background>("transparent");
@@ -274,6 +274,7 @@ export const PixelEditor: React.FC = () => {
             activeColor={color}
             onColorSelect={setColor}
             onPaletteChange={handlePaletteChange}
+            onPresetSelect={setPalette}
           />
         </aside>
       </div>
