@@ -53,6 +53,7 @@ export const PixelEditor: React.FC = () => {
     (w: number, h: number) => {
       setCanvasSize({ width: w, height: h });
       setZoom(getDefaultZoom(w, h));
+      setPalette(PALETTE_PRESETS[0].colors);
       reset(w, h);
       setShowDialog(false);
     },
