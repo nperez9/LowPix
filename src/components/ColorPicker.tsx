@@ -62,13 +62,14 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({ color, onChange }) => 
           <div className="flex items-center bg-neutral-800 rounded-lg px-2 h-10 gap-1">
             <span className="text-neutral-500 text-sm">#</span>
             <input
+              id="hex-input"
               type="text"
               maxLength={6}
               value={hexInput}
               onChange={e => setHexInput(e.target.value.toUpperCase())}
               onBlur={handleHexCommit}
               onKeyDown={e => { if (e.key === 'Enter') handleHexCommit(); }}
-              className="flex-1 bg-transparent text-white text-sm font-mono focus:outline-none min-w-0"
+              className="bg-transparent text-white text-sm font-mono focus:outline-none min-w-0 w-full"
               spellCheck={false}
             />
           </div>
